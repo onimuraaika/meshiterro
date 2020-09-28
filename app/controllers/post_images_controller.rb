@@ -16,6 +16,7 @@ class PostImagesController < ApplicationController #画像投稿用のコント�
     end
 
     def show
+        @post_image = PostImage.find(params[:id])
     end
 
     private #投稿データのストロングパラメータ設定

@@ -1,3 +1,4 @@
+<!--詳細画面表示のHTML-->
 <section class="sct-color-1 slice">
   <div class="container">
     <div class="row">
@@ -6,22 +7,18 @@
 
           <div class="post-meta-top">
             <div class="post-image">
-              <a href="images/sample-post1.jpg" class="theater">
-                <!-- <img src="images/sample-post1.jpg"> -->
-                <%= image_tag('sample-post1.jpg') %>
-              </a>
+              <%= attachment_image_tag @post_image, :image %>
             </div>
           </div>
-
           <div class="post-content">
-            <h2 class="post-title">ここにタイトル</h2>
+            <h2 class="post-title"><%= @post_image.shop_name %></h2>
             <ul class="meta-info-cells v4 float-wrapper">
               <li>
-                <i class="fa fa-user"></i>By
-                <a href="#">投稿者名</a>
+                <i class="fa fa-user"></i>By<a href="#">
+                  <%= @post_image.user.name %></a>
               </li>
               <li>
-                <i class="fa fa-calendar"></i>2017/07/21
+                <i class="fa fa-calendar"></i><%= @post_image.created_at.strftime('%Y/%m/%d') %> <!--「'%Y/%m/%d'」で、年/月/日のフォーマットへ変換-->
               </li>
               <li>
                 <i class="fa fa-heart"></i>
@@ -33,7 +30,7 @@
               </li>
             </ul>
             <div class="post-content-inner mt-20">
-              <p>ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト</p>
+              <p><%= @post_image.caption %></p>
             </div>
           </div>
 

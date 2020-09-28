@@ -10,7 +10,9 @@
               <div class="block block-image v1">
                 <div class="block-image">
                   <div class="view view-first">
-                    <%= attachment_image_tag post_image, :image %> <!--attachment_image_tagは、refile側が用意したヘルパー。imgタグを作成。post_image変数のimage_idに保存された画像のimgタグを生成。-->
+                    <%= link_to post_image_path(post_image.id) do %> <!--post_image_pathは詳細画面ののパス-->
+                      <%= attachment_image_tag post_image, :image %> <!--attachment_image_tagは、refile側が用意したヘルパー。imgタグを作成。post_image変数のimage_idに保存された画像のimgタグを生成。-->
+                    <% end %>
                   </div>
                 </div>
                 <div class="block-content">
