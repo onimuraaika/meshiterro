@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user! #全てのページで認証が必要になる
+    #「before_action」このコントローラが動作する前に実行される命令
+    before_action :authenticate_user! #全てのページで認証が必要になる設定。「authenticate_user」メソッドはdeviseが用意しているメソッド。
     before_action :configure_permitted_parameters, if: :devise_controller?
     #devise利用の機能(ユーザ登録/ログイン認証等)が使われる場合、その前にconfigure_permitted_parametersが実行される
 

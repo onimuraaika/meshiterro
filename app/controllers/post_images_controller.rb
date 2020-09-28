@@ -8,10 +8,11 @@ class PostImagesController < ApplicationController #画像投稿用のコント�
         @post_image = PostImage.new(post_image_params)
         @post_image.user_id = current_user.id
         @post_image.save
-        redirect_to #投稿一覧
+        redirect_to #投稿一覧画面へ
     end
 
     def index
+        @post_images = PostImage.all
     end
 
     def show
