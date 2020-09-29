@@ -56,6 +56,11 @@
                         </span>
                       </div>
                       <div class="comment-entry"><%= post_comment.comment %></div>
+                      <% if post_comment.user == current_user %>
+                        <div> <!--コメントしたものがログインユーザーのものであれば削除ボタンを表示して、削除できるボタンの設定-->
+                          <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </li>

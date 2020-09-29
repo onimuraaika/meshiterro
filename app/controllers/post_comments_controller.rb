@@ -10,6 +10,8 @@ class PostCommentsController < ApplicationController
     end
 
     def destroy #コメント投稿を削除
+        PostComment.find_by(id: params[:id], post_image_id: params[:post_image_id]).destroy
+        redirect_to post_image_path(params[:post_image_id]) #削除後、投稿詳細画面へリダイレクト
     end
     
     private #コメント投稿データのストロングパラメータ設定
