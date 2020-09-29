@@ -8,8 +8,11 @@ class PostImagesController < ApplicationController
     def create #保存
         @post_image = PostImage.new(post_image_params)
         @post_image.user_id = current_user.id
-        @post_image.save
-        redirect_to #投稿一覧画面へ
+        if  @post_image.save
+            redirect_to post_images_path #バリデーションチェック後保存できたら投稿一覧画面へ
+        else
+            render :new #同じコントローラ内のnewアクションのviewを表示
+        end
     end
 
     def index
