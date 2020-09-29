@@ -17,12 +17,18 @@ class PostImagesController < ApplicationController
 
     def index
         #@post_images = PostImage.all　は、全てを取得し表示してしまう
-        @post_images = PostImage.page(params[:page]).reverse_order #ページングで決められた文だけ表示するよう設定
+        @post_images = PostImage.page(params[:page]).reverse_order #「reverse_order」は降順。ページングで決められた文だけ表示するよう設定
     end
 
     def show
         @post_image = PostImage.find(params[:id])
         @post_comment = PostComment.new #「詳細画面にコメント」インスタンス変数
+    end
+    
+    def destroy
+        @post_image = PostImage.find #resourcesルーティングのdestroyで渡された（params[:id]）を元に、findメソッドで削除データを探し、@post_imageインスタンスに格納。
+        @post_image.destroy
+        redirect_to post_images_path #削除されたら一覧表示画面へリダイレクト
     end
 
     private #投稿データのストロングパラメータ設定
