@@ -17,6 +17,7 @@ class PostImagesController < ApplicationController #画像投稿用のコント�
 
     def show
         @post_image = PostImage.find(params[:id])
+        @post_comment = PostComment.new #「詳細画面にコメント」インスタンス変数
     end
 
     private #投稿データのストロングパラメータ設定

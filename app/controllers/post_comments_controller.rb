@@ -4,6 +4,6 @@ class PostCommentsController < ApplicationController
     def create #コメント投稿を保存
     end
 
-    def destroy #コメント投稿を
+    def destroy #コメント投稿を削除
     end
 end
