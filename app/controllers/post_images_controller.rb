@@ -1,4 +1,5 @@
-class PostImagesController < ApplicationController #画像投稿用のコントローラ
+#画像投稿用のコントローラ
+class PostImagesController < ApplicationController
 
     def new
         @post_image = PostImage.new #画像投稿用空のインスタンス
@@ -12,7 +13,8 @@ class PostImagesController < ApplicationController #画像投稿用のコント�
     end
 
     def index
-        @post_images = PostImage.all
+        #@post_images = PostImage.all　は、全てを取得し表示してしまう
+        @post_images = PostImage.page(params[:page]).reverse_order #ページングで決められた文だけ表示するよう設定
     end
 
     def show
