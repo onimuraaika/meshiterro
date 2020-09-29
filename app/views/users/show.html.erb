@@ -3,6 +3,9 @@
 <div class="profile-container"> <!--ユーザーのプロフィールを上部に表示-->
   <h3 class="profile-name"><%= @user.name %></h3>
   <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+  <% if @user.id == current_user.id %> <!--プロフィール編集ページへのリンク表示。ログイン状態の時のみ表示-->
+    <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+  <% end %>
 </div>
 
 <section class="sct-color-1 slice">

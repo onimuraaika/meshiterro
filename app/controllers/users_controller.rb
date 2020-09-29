@@ -5,4 +5,9 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @post_images = @user.post_images.page(params[:page]).reverse_order #@post_imagesをshow.hrml.rbに渡す
     end
+    
+    def edit
+        @user = User.find(params[:id])
+    end
+    
 end
