@@ -6,5 +6,5 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy] #投稿画像に対してのいいね機能、保存と削除だけ
       resources :post_comments, only: [:create, :destroy] #投稿画像に対してのコメントだから、post_commentsは、post_imagesと親子関係。
     end
-    resources :users, only: [:show, :edit] #マイページ、マイページ表示、プロフィール編集だけ
+    resources :users, only: [:show, :edit, :update] #マイページ、マイページ表示、プロフィール編集、更新だけ
 end
