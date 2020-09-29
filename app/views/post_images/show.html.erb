@@ -20,7 +20,7 @@
               <li>
                 <i class="fa fa-calendar"></i><%= @post_image.created_at.strftime('%Y/%m/%d') %> <!--「'%Y/%m/%d'」で、年/月/日のフォーマットへ変換-->
               </li>
-              
+
               <% if @post_image.favorited_by?(current_user) %> <!--いいね機能の表示-->
                 <li>
                   <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
@@ -36,7 +36,7 @@
                   <% end %>
                 </li>
               <% end %>
-              
+
               <li>
                 <i class="fa fa-comment"></i>
                 <a href="#comments"><%= @post_image.post_comments.count %></a> <!--コメント件数を数える-->
@@ -56,14 +56,13 @@
             <div class="float-wrapper">
               <h2 class="comment-count"><%= @post_image.post_comments.count %>件コメント</h2> <!--コメント件数を表示-->
             </div>
-
             <ol> <!--コメント本文の表示-->
               <% @post_image.post_comments.each do |post_comment| %>
                 <li class="comment">
                   <div class="comment-body bb">
                     <div class="comment-avatar">
                       <div class="avatar">
-                        <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %>
+                        <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
                       </div>
                     </div>
                     <div class="comment-text">
