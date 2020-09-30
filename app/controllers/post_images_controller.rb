@@ -24,7 +24,7 @@ class PostImagesController < ApplicationController
         @post_image = PostImage.find(params[:id])
         @post_comment = PostComment.new #「詳細画面にコメント」インスタンス変数
     end
-    
+
     def destroy
         @post_image = PostImage.find #resourcesルーティングのdestroyで渡された（params[:id]）を元に、findメソッドで削除データを探し、@post_imageインスタンスに格納。
         @post_image.destroy
